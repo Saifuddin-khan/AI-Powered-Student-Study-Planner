@@ -1,0 +1,62 @@
+# =============================================
+# AI Powered Student Study Planner — .gitignore
+# =============================================
+
+# ── SECRETS ──────────────────────────────────
+.env
+*.env
+!.env.example
+
+# ── BACKEND (Maven / Spring Boot) ─────────────
+backend-repo/target/
+backend-repo/.mvn/wrapper/maven-wrapper.jar
+backend-repo/**/*.log
+backend-repo/logs/
+backend-repo/uploads/
+
+# ── FRONTEND (React / Node) ───────────────────
+smart-study-planner/node_modules/
+smart-study-planner/build/
+smart-study-planner/dist/
+smart-study-planner/.cache/
+smart-study-planner/coverage/
+
+# ── IDE & EDITOR ──────────────────────────────
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+.factorypath
+
+# ── OS GENERATED ─────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── LOGS ──────────────────────────────────────
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── TESTING ───────────────────────────────────
+*.test.js.snap
+
+# ── MISC ──────────────────────────────────────
+*.tmp
+*.bak
+*.orig
+*.pid
