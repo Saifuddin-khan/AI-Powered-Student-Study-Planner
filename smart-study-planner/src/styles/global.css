@@ -1,0 +1,84 @@
+html,
+body {
+  font-family:       var(--font-body);
+  font-size:         var(--text-base);
+  background-color:  var(--bg-base);
+  color:             var(--text-primary);
+  transition:        background-color var(--transition-slow),
+                     color var(--transition-slow);
+}
+
+/* ── Custom Scrollbar ─────────────────────────── */
+::-webkit-scrollbar {
+  width:  6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background:    var(--primary);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+/* ── Selection ────────────────────────────────── */
+::selection {
+  background: var(--primary-glow);
+  color:      var(--text-primary);
+}
+
+/* ── Focus ring ───────────────────────────────── */
+:focus-visible {
+  outline:        2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── Links ────────────────────────────────────── */
+a {
+  color:      var(--accent-blue);
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--primary-light);
+}
+
+/* ── Headings ─────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color:       var(--text-primary);
+}
+
+/* ── Page enter animation class ──────────────── */
+.page-enter {
+  animation: slideInUp var(--transition-slow) both;
+}
+
+/* ── Utility classes ──────────────────────────── */
+.text-primary   { color: var(--text-primary);   }
+.text-secondary { color: var(--text-secondary); }
+.text-muted     { color: var(--text-muted);     }
+
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono);    }
+
+.truncate {
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+}
+
+.visually-hidden {
+  position: absolute;
+  width:    1px;
+  height:   1px;
+  padding:  0;
+  margin:   -1px;
+  overflow: hidden;
+  clip:     rect(0,0,0,0);
+  border:   0;
+}

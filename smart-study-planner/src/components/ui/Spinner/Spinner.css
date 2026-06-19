@@ -1,0 +1,24 @@
+.spinner-wrap {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         var(--space-8);
+}
+
+.spinner {
+  border:        3px solid var(--border-soft);
+  border-top:    3px solid var(--primary);
+  border-radius: var(--radius-full);
+  animation:     spin 0.7s linear infinite;
+}
+
+.spinner--sm { width: 20px; height: 20px; }
+.spinner--md { width: 32px; height: 32px; }
+.spinner--lg { width: 48px; height: 48px; }
+
+.spinner-wrap--fullpage {
+  position: fixed;
+  inset:    0;
+  z-index:  999;
+  background: var(--bg-base);
+}

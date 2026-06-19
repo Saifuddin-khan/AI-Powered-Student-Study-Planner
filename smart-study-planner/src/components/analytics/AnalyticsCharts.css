@@ -1,0 +1,312 @@
+/* ========================================================
+   ANALYTICS CHARTS
+   ======================================================== */
+
+.ac-charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.ac-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.ac-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-soft);
+  border-left: 3px solid #7C6FCD;
+}
+
+.ac-card__title {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ── Range tabs ────────────────────────────────────────── */
+.ac-range-tabs {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.ac-range-btn {
+  padding: var(--space-1) var(--space-3);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ac-range-btn:hover {
+  border-color: var(--primary-light);
+  color: var(--text-primary);
+}
+
+.ac-range-btn--active {
+  background: #7C6FCD;
+  border-color: #7C6FCD;
+  color: white;
+}
+
+/* ── Chart wrapper ────────────────────────────────────── */
+.ac-chart-wrapper {
+  position: relative;
+  padding: var(--space-5);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ac-empty {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+  padding: var(--space-8);
+}
+
+/* ── Export button ────────────────────────────────────── */
+.ac-export-btn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 1;
+}
+
+.ac-export-btn:hover {
+  background: #7C6FCD;
+  color: white;
+  border-color: #7C6FCD;
+}
+
+/* ── Tooltip ───────────────────────────────────────────── */
+.ac-tooltip {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  box-shadow: var(--shadow-card);
+}
+
+.ac-tooltip__label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin: 0 0 4px 0;
+  font-weight: 500;
+}
+
+.ac-tooltip__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ── Heatmap ───────────────────────────────────────────── */
+.ac-heatmap-filter {
+  padding: var(--space-1) var(--space-3);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ac-heatmap-filter:hover {
+  border-color: var(--primary-light);
+}
+
+.ac-heatmap-filter:focus {
+  outline: none;
+  border-color: #7C6FCD;
+  box-shadow: 0 0 0 2px rgba(124, 111, 205, 0.1);
+}
+
+.ac-heatmap {
+  padding: var(--space-5);
+  overflow-x: auto;
+}
+
+.ac-heatmap__labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
+
+.ac-heatmap__day {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ac-heatmap__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+  margin-bottom: var(--space-5);
+}
+
+.ac-heatmap__hour-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ac-heatmap__cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ac-heatmap__cell:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-card);
+  z-index: 10;
+}
+
+.ac-heatmap__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ac-heatmap__legend-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.ac-heatmap__legend-cell {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ac-card__header {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .ac-chart-wrapper {
+    padding: var(--space-4);
+    min-height: 250px;
+  }
+
+  .ac-range-tabs {
+    gap: var(--space-1);
+  }
+
+  .ac-range-btn {
+    padding: 6px var(--space-2);
+    font-size: 10px;
+  }
+
+  .ac-heatmap {
+    padding: var(--space-3);
+    overflow-x: auto;
+  }
+
+  .ac-heatmap__labels {
+    gap: 6px;
+  }
+
+  .ac-heatmap__grid {
+    gap: 4px;
+  }
+
+  .ac-heatmap__hour-group {
+    gap: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ac-card__header {
+    padding: var(--space-2) var(--space-3);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ac-card__title {
+    font-size: var(--text-sm);
+  }
+
+  .ac-chart-wrapper {
+    padding: var(--space-3);
+    min-height: 200px;
+  }
+
+  .ac-empty {
+    padding: var(--space-4);
+  }
+
+  .ac-range-tabs {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .ac-heatmap {
+    padding: var(--space-2);
+  }
+
+  .ac-heatmap__labels {
+    gap: 2px;
+    margin-bottom: var(--space-2);
+  }
+
+  .ac-heatmap__grid {
+    gap: 2px;
+  }
+}
+
+/* ── Light theme ───────────────────────────────────────── */
+body.light-theme .ac-tooltip {
+  background: var(--bg-elevated);
+  border-color: var(--border-soft);
+}
+
+body.light-theme .ac-heatmap__cell {
+  border-color: rgba(0, 0, 0, 0.15);
+}

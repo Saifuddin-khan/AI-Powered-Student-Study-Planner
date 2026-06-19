@@ -1,0 +1,188 @@
+/* ========================================================
+   EXAM READINESS WIDGET
+   ======================================================== */
+
+.erw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.erw:hover:not(.erw--loading) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.erw--compact {
+  padding: var(--space-4);
+  gap: var(--space-3);
+}
+
+/* ── Spinner ───────────────────────────────────────────── */
+.erw__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--bg-elevated);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Progress circle ───────────────────────────────────── */
+.erw__progress {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.erw--compact .erw__progress {
+  width: 120px;
+  height: 120px;
+}
+
+.erw__svg {
+  width: 100%;
+  height: 100%;
+}
+
+.erw__score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.erw--compact .erw__score {
+  font-size: 22px;
+}
+
+/* ── Info section ──────────────────────────────────────── */
+.erw__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  text-align: center;
+}
+
+.erw__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.erw__metric-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.erw__metric-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ── Confidence indicator ──────────────────────────────── */
+.erw__confidence {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: center;
+  padding: var(--space-3);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+}
+
+.erw__confidence-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.erw__confidence-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.erw__confidence-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.erw__confidence-level {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ── Subtitle (compact) ────────────────────────────────── */
+.erw__subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .erw {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .erw__progress {
+    width: 140px;
+    height: 140px;
+  }
+
+  .erw__score {
+    font-size: 24px;
+  }
+
+  .erw__metric-value {
+    font-size: var(--text-base);
+  }
+}
+
+/* ── Light theme ───────────────────────────────────────── */
+body.light-theme .erw__score {
+  color: var(--text-primary);
+}
+
+body.light-theme .erw__metric-value {
+  color: var(--text-primary);
+}
