@@ -396,18 +396,29 @@ Client Request
 
 ## Screenshots
 
-> Screenshots will be added after UI walkthrough recording.
+### Landing Page
+![Landing Page](screenshots/01-landing-page.jpeg)
 
-| Page | Description |
-|---|---|
-| **Landing Page** | Product introduction with feature highlights |
-| **Login / Register** | JWT-secured authentication forms |
-| **Dashboard** | Stats, heatmap, streaks, and today's schedule |
-| **Task Management** | Filterable task board with priority and status |
-| **Subjects + Syllabus** | Subject cards with AI-powered syllabus upload |
-| **AI Assistant** | GPT-powered study chatbot with history |
-| **Admin Dashboard** | Platform-wide user and activity analytics |
-| **User Management** | Admin table with search, role, disable, and delete |
+### Login & Register
+![Login Register](screenshots/02-login-register.jpeg)
+
+### Dashboard
+![Dashboard](screenshots/03-dashboard.jpeg)
+
+### Task Management
+![Tasks](screenshots/04-tasks.jpeg)
+
+### AI Assistant
+![AI Assistant](screenshots/05-ai-assistant.jpeg)
+
+### Subjects
+![Subjects](screenshots/06-subjects.jpeg)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/07-admin-dashboard.jpeg)
+
+### User Management
+![User Management](screenshots/08-user-management.jpeg)
 
 ---
 
