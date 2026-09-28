@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "app.base-url",
+      "type": "java.lang.String",
+      "description": "Base URL of the server, used for constructing absolute URLs (e.g. profile image URLs).",
+      "defaultValue": "http://localhost:8080"
+    },
+    {
+      "name": "file.upload-dir",
+      "type": "java.lang.String",
+      "description": "Directory path where uploaded files (e.g. profile images) are stored.",
+      "defaultValue": "uploads/profile-images"
+    },
+    {
+      "name": "app.syllabus.max-file-size-mb",
+      "type": "java.lang.Long",
+      "description": "Maximum allowed size (in MB) for an uploaded syllabus file.",
+      "defaultValue": 10
+    },
+    {
+      "name": "tesseract.datapath",
+      "type": "java.lang.String",
+      "description": "Path to the Tesseract OCR tessdata directory (contains trained language files).",
+      "defaultValue": "C:/Program Files/Tesseract-OCR/tessdata"
+    }
+  ]
+}

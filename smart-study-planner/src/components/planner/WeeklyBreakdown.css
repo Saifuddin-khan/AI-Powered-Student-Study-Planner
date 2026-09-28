@@ -1,0 +1,4 @@
+/* Weekly Breakdown Component Styles - Integrated into studyPlan.css
+   This file is kept for modular organization and imports */
+
+@import '../../pages/planner/studyPlan.css';

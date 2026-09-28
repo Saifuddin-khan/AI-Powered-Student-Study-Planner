@@ -1,0 +1,15 @@
+package com.studyplanner.enums;
+
+public enum AuditAction {
+    LOGIN,
+    LOGOUT,
+    REGISTER,
+    PASSWORD_CHANGE,
+    PASSWORD_RESET,
+    ACCOUNT_DELETED,
+    USER_ACTIVATED,
+    USER_DEACTIVATED,
+    ROLE_CHANGED,
+    IMPERSONATION_START,
+    IMPERSONATION_END
+}

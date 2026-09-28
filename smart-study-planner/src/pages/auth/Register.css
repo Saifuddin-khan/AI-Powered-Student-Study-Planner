@@ -1,0 +1,12 @@
+/* Register reuses auth-page layout from Login.css */
+.register-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--space-4);
+}
+
+@media (max-width: 480px) {
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+}

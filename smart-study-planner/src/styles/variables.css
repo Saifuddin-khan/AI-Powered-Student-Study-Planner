@@ -1,0 +1,127 @@
+/* ============================================================
+   SMART STUDY PLANNER — CSS DESIGN TOKENS
+   Dark theme on :root | Light theme on body.light-theme
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --bg-base:        #0D0D1A;
+  --bg-surface:     #13131F;
+  --bg-elevated:    #1C1C2E;
+  --bg-sidebar:     #10101C;
+
+  /* Brand / Primary */
+  --primary:        #7C6FCD;
+  --primary-light:  #9B8FE0;
+  --primary-glow:   rgba(124, 111, 205, 0.15);
+  --primary-border: rgba(124, 111, 205, 0.30);
+
+  /* Accent Colors */
+  --accent-green:   #4ADE80;
+  --accent-orange:  #FB923C;
+  --accent-pink:    #F472B6;
+  --accent-blue:    #38BDF8;
+  --accent-red:     #F87171;
+
+  /* Text */
+  --text-primary:   #F1F0F7;
+  --text-secondary: #8B8AAF;
+  --text-muted:     #4B4B6B;
+
+  /* Borders */
+  --border-soft:    rgba(255, 255, 255, 0.06);
+  --border-medium:  rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+
+  /* Shadows */
+  --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-modal:   0 20px 60px rgba(0, 0, 0, 0.7);
+  --shadow-glow:    0 0 20px rgba(124, 111, 205, 0.25);
+
+  /* Typography */
+  --font-display:   'Plus Jakarta Sans', sans-serif;
+  --font-body:      'Inter', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+
+  /* Type Scale */
+  --text-xs:        0.70rem;
+  --text-sm:        0.813rem;
+  --text-base:      0.938rem;
+  --text-md:        1.063rem;
+  --text-lg:        1.25rem;
+  --text-xl:        1.5rem;
+  --text-2xl:       1.875rem;
+  --text-3xl:       2.25rem;
+
+  /* Spacing */
+  --space-1:        4px;
+  --space-2:        8px;
+  --space-3:        12px;
+  --space-4:        16px;
+  --space-5:        20px;
+  --space-6:        24px;
+  --space-8:        32px;
+  --space-10:       40px;
+  --space-12:       48px;
+  --space-16:       64px;
+
+  /* Border Radius */
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      14px;
+  --radius-xl:      20px;
+  --radius-full:    9999px;
+
+  /* Transitions */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Module Accent Colors (Notebook Tab System) */
+  --accent-dashboard:  #7C6FCD;
+  --accent-subjects:   #38BDF8;
+  --accent-tasks:      #FB923C;
+  --accent-planner:    #4ADE80;
+  --accent-notes:      #FBBF24;
+  --accent-goals:      #F472B6;
+  --accent-timetable:  #34D399;
+  --accent-progress:   #60A5FA;
+  --accent-pomodoro:   #F87171;
+  --accent-analytics:  #A78BFA;
+  --accent-ai:         #F472B6;
+  --accent-notifs:     #FB923C;
+  --accent-settings:   #8B8AAF;
+  --accent-admin:      #F87171;
+
+  /* Sidebar */
+  --sidebar-width:          260px;
+  --sidebar-collapsed-width: 70px;
+  --navbar-height:           64px;
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDES
+   ============================================================ */
+body.light-theme {
+  --bg-base:        #F4F4F8;
+  --bg-surface:     #FFFFFF;
+  --bg-elevated:    #FFFFFF;
+  --bg-sidebar:     #FFFFFF;
+
+  --primary:        #6C5CE7;
+  --primary-light:  #7C6FCD;
+  --primary-glow:   rgba(108, 92, 231, 0.10);
+  --primary-border: rgba(108, 92, 231, 0.25);
+
+  --text-primary:   #1A1A2E;
+  --text-secondary: #5A5A7A;
+  --text-muted:     #A0A0B8;
+
+  --border-soft:    rgba(0, 0, 0, 0.07);
+  --border-medium:  rgba(0, 0, 0, 0.12);
+  --border-strong:  rgba(0, 0, 0, 0.20);
+
+  --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.07);
+  --shadow-modal:   0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-glow:    0 0 20px rgba(108, 92, 231, 0.15);
+}

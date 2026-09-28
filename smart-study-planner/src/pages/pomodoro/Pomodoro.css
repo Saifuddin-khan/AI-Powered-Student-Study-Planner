@@ -1,0 +1,294 @@
+/* ================================================================
+   POMODORO TIMER  — signature page
+   accent: dynamic via --pom-color
+   ================================================================ */
+
+.pom-page { display: flex; flex-direction: column; gap: var(--space-6); padding-bottom: var(--space-10); }
+
+/* ── Centered timer block ─────────────────────────────────── */
+.pom-center {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            var(--space-5);
+}
+
+/* ── Mode tabs ───────────────────────────────────────────── */
+.pom-tabs {
+  display:       flex;
+  gap:           var(--space-2);
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-soft);
+  border-radius: var(--radius-full);
+  padding:       4px;
+  box-shadow:    var(--shadow-card);
+}
+
+.pom-tab {
+  padding:       var(--space-2) var(--space-5);
+  border:        none;
+  border-radius: var(--radius-full);
+  color:         var(--text-secondary);
+  font-size:     var(--text-sm);
+  font-weight:   600;
+  cursor:        pointer;
+  background:    transparent;
+  transition:    background var(--transition-fast), color var(--transition-fast);
+}
+.pom-tab:hover    { color: var(--text-primary); }
+.pom-tab--active  {
+  background: rgba(255,255,255,0.07);
+  color:      var(--tab-color, var(--primary-light));
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+/* ── Subject selector ────────────────────────────────────── */
+.pom-subject__select {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  color:         var(--text-secondary);
+  font-size:     var(--text-sm);
+  padding:       var(--space-2) var(--space-4);
+  cursor:        pointer;
+  outline:       none;
+  min-width:     200px;
+  text-align:    center;
+  transition:    border-color var(--transition-fast);
+}
+.pom-subject__select:focus           { border-color: var(--pom-color, var(--primary)); }
+.pom-subject__select:disabled        { opacity: 0.5; cursor: not-allowed; }
+.pom-subject__select option          { background: var(--bg-elevated); }
+
+/* ── Ring container ──────────────────────────────────────── */
+.pom-ring {
+  position: relative;
+  width:    260px;
+  height:   260px;
+}
+
+.pom-ring__svg {
+  width:  100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px transparent);
+  transition: filter 0.4s ease;
+}
+
+@keyframes pomGlow {
+  0%,100% { filter: drop-shadow(0 0 6px var(--pom-color)); }
+  50%     { filter: drop-shadow(0 0 22px var(--pom-color)); }
+}
+
+.pom-ring__svg--running {
+  animation: pomGlow 2.4s ease-in-out infinite;
+}
+
+/* ── Center overlay ──────────────────────────────────────── */
+.pom-ring__center {
+  position:        absolute;
+  inset:           0;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             4px;
+  pointer-events:  none;
+}
+
+.pom-ring__time {
+  font-family: var(--font-mono);
+  font-size:   2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
+}
+
+.pom-ring__mode {
+  font-size:   var(--text-sm);
+  font-weight: 600;
+  color:       var(--text-secondary);
+}
+
+.pom-ring__dots {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  margin-top:  4px;
+}
+
+.pom-ring__count {
+  font-size:   var(--text-xs);
+  color:       var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Controls ────────────────────────────────────────────── */
+.pom-controls {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-4);
+}
+
+.pom-ctrl {
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  border:        none;
+  cursor:        pointer;
+  transition:    transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+.pom-ctrl:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Reset button */
+.pom-ctrl--reset {
+  width:         48px;
+  height:        48px;
+  border-radius: 50%;
+  background:    var(--bg-elevated);
+  color:         var(--text-secondary);
+  border:        1px solid var(--border-medium);
+}
+.pom-ctrl--reset:hover:not(:disabled) {
+  background: var(--bg-surface);
+  color:      var(--text-primary);
+  transform:  scale(1.08);
+}
+
+/* Main play/pause */
+.pom-ctrl--main {
+  width:         72px;
+  height:        72px;
+  border-radius: 50%;
+  background:    var(--pom-color, var(--primary));
+  color:         #fff;
+  box-shadow:    0 4px 20px rgba(0,0,0,0.3);
+}
+.pom-ctrl--main:hover:not(:disabled) {
+  filter:    brightness(1.15);
+  transform: scale(1.06);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.4);
+}
+.pom-ctrl--main:active:not(:disabled) { transform: scale(0.96); }
+
+/* Spinner inside button */
+@keyframes spin { to { transform: rotate(360deg); } }
+.pom-ctrl__spinner {
+  display:       block;
+  width:         22px;
+  height:        22px;
+  border:        3px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation:     spin 0.7s linear infinite;
+}
+
+/* ── Tip text ────────────────────────────────────────────── */
+.pom-tip {
+  font-size:  var(--text-sm);
+  color:      var(--text-muted);
+  margin:     0;
+  text-align: center;
+  min-height: 20px;
+  transition: color 0.4s ease;
+}
+.pom-tip--active { font-weight: 600; }
+
+/* ── History panel ───────────────────────────────────────── */
+.pom-history {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  border-left:   3px solid #7C6FCD;
+  box-shadow:    var(--shadow-card);
+  overflow:      hidden;
+}
+
+.pom-history__header {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--space-2);
+  padding:       var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-soft);
+  color:         var(--text-secondary);
+}
+
+.pom-history__title {
+  flex:        1;
+  font-size:   var(--text-md);
+  font-weight: 700;
+  color:       var(--text-primary);
+  margin:      0;
+}
+
+.pom-history__count {
+  font-size:   var(--text-xs);
+  color:       var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.pom-history__empty {
+  font-size:  var(--text-sm);
+  color:      var(--text-muted);
+  text-align: center;
+  padding:    var(--space-8);
+  margin:     0;
+}
+
+.pom-history__list { display: flex; flex-direction: column; }
+
+/* ── History item ────────────────────────────────────────── */
+.pom-hist-item {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--space-3);
+  padding:       var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border-soft);
+  transition:    background var(--transition-fast);
+}
+.pom-hist-item:last-child { border-bottom: none; }
+.pom-hist-item:hover      { background: var(--bg-elevated); }
+
+.pom-hist-item__dot {
+  width:         10px;
+  height:        10px;
+  border-radius: 50%;
+  flex-shrink:   0;
+}
+.pom-hist-item__dot--done    { background: #4ADE80; }
+.pom-hist-item__dot--partial { background: var(--text-muted); opacity: 0.5; }
+
+.pom-hist-item__info  { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.pom-hist-item__time  { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-secondary); }
+.pom-hist-item__subject { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.pom-hist-item__dur {
+  font-family: var(--font-mono);
+  font-size:   var(--text-xs);
+  color:       var(--text-muted);
+  flex-shrink: 0;
+}
+
+.pom-hist-item__status {
+  font-size:   var(--text-xs);
+  color:       var(--text-muted);
+  flex-shrink: 0;
+  width:       18px;
+  text-align:  center;
+}
+.pom-hist-item__status--done { color: #4ADE80; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 500px) {
+  .pom-ring  { width: 220px; height: 220px; }
+  .pom-ring__time { font-size: 2.2rem; }
+  .pom-tabs  { flex-wrap: wrap; justify-content: center; }
+  .pom-tab   { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); }
+}
+
+@media (max-width: 380px) {
+  .pom-ring       { width: 190px; height: 190px; }
+  .pom-ring__time { font-size: 1.9rem; }
+  .pom-subject__select { min-width: 0; width: 100%; }
+  .pom-hist-item  { gap: var(--space-2); padding: var(--space-2) var(--space-3); }
+}

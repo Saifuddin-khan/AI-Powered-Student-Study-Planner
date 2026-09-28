@@ -1,0 +1,51 @@
+/* ============================================================
+   RESPONSIVE — BREAKPOINTS
+   sm: 640px | md: 768px | lg: 1024px | xl: 1280px
+   ============================================================ */
+
+/* Sidebar collapses to icon-only on tablet */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: var(--sidebar-collapsed-width);
+  }
+}
+
+/* Sidebar fully hidden on mobile (overlay-driven) */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+}
+
+/* Scale down heading tokens on small phones */
+@media (max-width: 480px) {
+  :root {
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+  }
+}
+
+/* ── Utility classes ─────────────────────────────────────── */
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* ── Touch devices: always show hover-revealed action buttons ── */
+@media (max-width: 768px) {
+  /* Cards & list-item action buttons that require hover on desktop */
+  .task-card__actions,
+  .goal-card__actions,
+  .note-card__actions,
+  .plan-item__actions,
+  .subject-card__actions,
+  .tt-slot__actions,
+  .prog-log-item__del,
+  .notif-item__del { opacity: 1 !important; }
+}
